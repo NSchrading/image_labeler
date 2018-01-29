@@ -32,7 +32,6 @@ def initialize_db(directory):
     for dirpath, dirnames, filenames in os.walk(directory):
         for filename in filenames:
             if filename.endswith('.jpg') or filename.endswith('.png') or filename.endswith('.jpeg'):
-                print(filename)
                 cursor.execute("INSERT OR IGNORE INTO images(path, label) VALUES (?, ?)",
                                (os.path.join(dirpath, filename), 'unlabeled'))
     conn.commit()
@@ -74,12 +73,6 @@ def chunks(l, n):
         yield l[i:i + n]
 
 
-def onpick(event):
-    image = event.artist
-    image.set_visible(not image.get_visible())
-    print(image.image_filename)
-
-
 def setup_plots(num_images, figure_inches):
     plt.rcParams['toolbar'] = 'None'
     f = plt.figure(1, (figure_inches, figure_inches), dpi=dpi)
@@ -103,6 +96,11 @@ def show_image(filename, ax, i):
         image_spaces[i].set_data(image)
         image_spaces[i].set_extent((-0.5, image.width - 0.5, image.height - 0.5, -0.5))
     ax.image_filename = filename
+
+
+def onpick(event):
+    image = event.artist
+    image.set_visible(not image.get_visible())
 
 
 def label_image(image):
