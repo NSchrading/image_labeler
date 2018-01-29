@@ -4,8 +4,8 @@ Displays a configurable grid of clickable images. Clicking on the image will hid
 positive (or negative if you wish) class. Pressing enter will move on to the next set of images until all images
 are labeled.
 
-![Start](https://github.com/NSchrading/image_labeler/blob/master/start_example.png)
-![After clicking on negative samples](https://github.com/NSchrading/image_labeler/blob/master/labeled.png)
+![Start](https://github.com/NSchrading/image_labeler/blob/master/start_example.PNG?raw=true)
+![After clicking on negative samples](https://github.com/NSchrading/image_labeler/blob/master/labeled.PNG?raw=true)
 
 ### Supported actions:
 * Click: Hide/unhide an image to label it as a class.
